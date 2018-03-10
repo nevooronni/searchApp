@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+  {% block content %}
+        <div class="container">
+          <div class="row">
+            {% if articles %}
+              <h2>Found {{ articles|length }} of searched term {{message}}</h2>
+            {% else %}
+              <h2>Found 0 articles for the search term '{{message}}"</h2>
+            {% endif %}
+          </div>
+
+          
+          {% if articles %}
+          <div class="row">
+            {% for articles in articles %}
+              <div class="col-sm-6 col-md-3">
+                <h2 class="text-center text-danger">{{articles.title }}</h2>
+              </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          
+     
+          {% for article in articles %}
+          <div class="row" style="margin-top: 1%;  padding-bottom: 1%;">
+            <hr>
+            <!--display artricle images-->
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+              <img src="{{article.article_image.url}}" class="img-responsive" alt="Image" style="height: 350px; width: 480px;">
+            </div>
+
+            <!--display news article-->
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" style="margin-top: 10%;">
+              <h2 class="text-center" style="color: #337ab7;">{{article.title}}</h2>
+              <p>{{article.post}}</p>
+              {% for tag in article.tags.all %}
+                <button type="button" name="button" style="margin-left: 40%;">{{tag.name}}</button><br>
+              {% endfor %}
+              <small style="margin-left: 10%;"><strong>Posted at: {{article.pub_date}}</strong></small>
+              
+           </div>
+           <div class="col-md-3 col-lg-3"></div>
+          </div>
+          <hr>
+          {% endfor %}
+        </div>
+  {% endblock %}
