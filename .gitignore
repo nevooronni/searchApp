@@ -1,0 +1,5 @@
+.DS_Store
+virtual/
+apache/
+*.pyc
+.env
