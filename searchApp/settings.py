@@ -26,7 +26,7 @@ SECRET_KEY = '_a^8754f!2rok8sdi%x=c6n7onk5$#)o%9@h-jyo+9q-4=4z$%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kenyatoday.herokuapp.com']
 
 
 # Application definition
